@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditworkerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                     <h:outputLabel value="#{bundle.EditworkerLabel_positionRow}" for="positionRow" />
+                    <h:inputText id="positionRow" value="#{workerController.selected.positionRow}" title="#{bundle.EditworkerTitle_positionRow}" />
+                    <h:outputLabel value="#{bundle.EditworkerLabel_poitionColumn}" for="poitionColumn" />
+                    <h:inputText id="poitionColumn" value="#{workerController.selected.poitionColumn}" title="#{bundle.EditworkerTitle_poitionColumn}" />
+                  <!--    <h:outputLabel value="#{bundle.EditworkerLabel_id}" for="id" /> -->
+                  <!--  <h:inputText id="id" value="#{workerController.selected.id}" title="#{bundle.EditworkerTitle_id}" /> -->
+                   <!--   <h:outputLabel value="#{bundle.EditworkerLabel_plateID}" for="plateID" /> -->
+                 <!--   <h:inputText id="plateID" value="#{workerController.selected.plateID}" title="#{bundle.EditworkerTitle_plateID}" /> -->
+                   
+                </h:panelGrid>
+                <h:commandLink action="#{workerController.update}" value="#{bundle.EditworkerSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditworkerViewLink}"/>
+                <br />
+                <h:commandLink action="#{workerController.prepareList}" value="#{bundle.EditworkerShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditworkerIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
